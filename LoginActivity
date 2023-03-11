@@ -1,0 +1,41 @@
+package com.example.myapplication;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class LoginActivity extends AppCompatActivity{
+    private Button btn_llogin;
+    TextView username;
+    TextView password;
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dangnhap);
+        btn_llogin = (Button) findViewById(R.id.btn_llogin);
+        username = (TextView) findViewById(R.id.username);
+        password = (TextView) findViewById(R.id.password);
+        btn_llogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (username.getText().toString().equals("vietbeno") && password.getText().toString().equals("123456"))
+                {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    Toast.makeText( LoginActivity.this,"Đăng nhập thành công",Toast.LENGTH_SHORT);
+                }
+                else
+                Toast.makeText( LoginActivity.this,"Đăng nhập Không thành công",Toast.LENGTH_SHORT);
+                }
+
+        });
+    }
+
+}
+
